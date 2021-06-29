@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="lib\jquery-3.5.1.js"></script>
+    <script src="lib\jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="lib\jquery.dataTables.min.css">
+    <script>
+       $(document).ready(function()
+       {
+           var table = $("#example").DataTable();
+           var counter = 1;
+
+           $("#addRow").on("click" , function()
+           {
+               table.row.add(
+                   [
+                       counter+".1",
+                       counter+".2",
+                       counter+".3",
+                       counter+".4",
+                       counter+".5",
+                   ]
+               ).draw(false);
+
+               counter++;
+           });
+
+           $("#addRow").click();
+       })
+    </script>
+</head>
+<body>
+    <button id="addRow">Add new row</button>
+    <br><br><br><br>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+                <th>Column 5</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+                <th>Column 5</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
